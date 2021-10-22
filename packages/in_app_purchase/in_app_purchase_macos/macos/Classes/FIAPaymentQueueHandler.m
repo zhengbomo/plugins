@@ -76,15 +76,19 @@
 }
 
 - (void)presentCodeRedemptionSheet {
+#if TARGET_OS_IPHONE
   if (@available(iOS 14, *)) {
     [self.queue presentCodeRedemptionSheet];
   } else {
     NSLog(@"presentCodeRedemptionSheet is only available on iOS 14 or newer");
   }
+#endif
 }
 
 - (void)showPriceConsentIfNeeded {
+#if TARGET_OS_IPHONE
   [self.queue showPriceConsentIfNeeded];
+#endif
 }
 
 #pragma mark - observing
